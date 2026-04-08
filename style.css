@@ -1,0 +1,109 @@
+/* الألوان والخطوط الأساسية */
+body { 
+    margin: 0; 
+    background: black; 
+    overflow: hidden; 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+}
+
+/* خلفية الماتريكس الوردي */
+#matrix { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: -1; 
+}
+
+/* حاوية المحتوى الوسطية */
+.container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    height: 100vh; 
+    color: #FF007F; 
+    padding-top: 20px; 
+}
+
+/* العد التنازلي */
+#countdown { 
+    font-size: 150px; 
+    font-weight: bold; 
+    text-shadow: 0 0 20px #FF007F;
+    margin-top: 150px;
+}
+
+.hidden { display: none; }
+
+/* العنوان الرئيسي (Happy Birthday) */
+.main-title { 
+    font-size: 45px; 
+    text-align: center; 
+    margin-bottom: 20px; /* مسافة صغيرة باش القلب يجي قريب ليه */
+    animation: glow 1s infinite alternate; 
+    z-index: 100;
+}
+
+/* تصميم القلب - كبّرناه وضبطنا المكان ديالو */
+.heart-box { 
+    position: relative; 
+    width: 250px; 
+    height: 250px; 
+    background-color: #FF007F; 
+    transform: rotate(-45deg); 
+    animation: pulse 1.5s infinite; 
+    margin-top: 100px; /* هبطناه تحت العنوان */
+    /* تحريك لليمين شوية كيط طلبات رانيا */
+    margin-left: 100px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-box::before, .heart-box::after { 
+    content: ""; 
+    position: absolute; 
+    width: 250px; 
+    height: 250px; 
+    background-color: #FF007F; 
+    border-radius: 50%; 
+}
+
+.heart-box::before { top: -125px; left: 0; }
+.heart-box::after { left: 125px; top: 0; }
+
+/* الصورة داخل القلب - ضبطنا السنتر */
+.rajaa-img { 
+    position: absolute; 
+    width: 85%; 
+    height: 85%; 
+    object-fit: cover; 
+    z-index: 10; 
+    /* رجعنا الصورة لوسط القلب بالضبط */
+    transform: rotate(45deg); 
+    border-radius: 10px; 
+    transition: opacity 0.5s; 
+}
+
+/* النص الإنجليزي في الأسفل */
+.wish-text { 
+    color: white; 
+    margin-top: 180px; 
+    font-size: 20px; 
+    z-index: 20; 
+    text-align: center;
+    font-style: italic;
+    text-shadow: 0 0 5px #FF007F;
+}
+
+/* أنيميشن النبض */
+@keyframes pulse { 
+    0% { transform: rotate(-45deg) scale(1); } 
+    50% { transform: rotate(-45deg) scale(1.1); } 
+    100% { transform: rotate(-45deg) scale(1); } 
+}
+
+/* أنيميشن توهج العنوان */
+@keyframes glow { 
+    from { text-shadow: 0 0 10px #FF007F; } 
+    to { text-shadow: 0 0 30px #FF007F, 0 0 40px #FF007F; } 
+}
